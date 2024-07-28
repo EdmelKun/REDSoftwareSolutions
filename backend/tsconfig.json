@@ -1,0 +1,15 @@
+// backend/tsconfig.json
+{
+  "compilerOptions": {
+    "composite": true,
+    "skipLibCheck": true,
+    "module": "commonjs",
+    "moduleResolution": "node",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "target": "ESNext",
+    "outDir": "dist"
+  },
+  "include": ["src", "prisma"]
+}

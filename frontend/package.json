@@ -1,0 +1,36 @@
+{
+  "name": "frontend",
+  "version": "1.0.0",
+  "main": "index.js",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "lint": "eslint . --ext ts,tsx --report-unused-disable-directives --max-warnings 0",
+    "preview": "vite preview"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "description": "",
+  "dependencies": {
+    "@mantine/core": "^7.10.2",
+    "@mantine/hooks": "^7.10.2",
+    "@tabler/icons-react": "^3.5.0",
+    "dayjs": "^1.11.11",
+    "framer-motion": "^11.2.13",
+    "postcss": "^8.4.38",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-router-dom": "^6.23.1",
+    "tailwindcss": "^3.4.4",
+    "vite": "^5.2.13"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.3",
+    "@types/react-dom": "^18.3.0",
+    "@types/react-stars": "^2.2.4",
+    "autoprefixer": "^10.4.19",
+    "react-stars": "^2.2.5",
+    "typescript": "^5.4.5"
+  }
+}
