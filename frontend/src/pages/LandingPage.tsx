@@ -3,15 +3,17 @@ import React, { useRef, useEffect } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navBarVariants } from "../animationVariants/variants";
 import Home from "../pages/Home";
-
+import Services from "./Services";
 import About from "./About";
 import LandingBG from "../assets/landingBG.jpg";
 import logo from "../assets/CompanyLogo.png";
+import Contacts from "./Contacts";
 
 const LandingPage = () => {
   const servicesRef = useRef<HTMLDivElement | null>(null);
   const homeRef = useRef<HTMLDivElement | null>(null);
   const aboutRef = useRef<HTMLDivElement | null>(null);
+  const contactsRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -24,6 +26,9 @@ const LandingPage = () => {
     let ref: React.RefObject<HTMLDivElement> | null = null;
 
     switch (section) {
+      case "contacts":
+        ref = contactsRef;
+        break;
       case "services":
         ref = servicesRef;
         break;
@@ -63,12 +68,14 @@ const LandingPage = () => {
         </div>
         <div className="flex justify-evenly">
           <button onClick={() => handleScrollTo("about")}>About</button>
-          <button>Services</button>
-          <button>Contact</button>
+          <button onClick={() => handleScrollTo("services")}>Services</button>
+          <button onClick={() => handleScrollTo("contacts")}>Contact</button>
         </div>
       </motion.div>
       <Home ref={homeRef} />
       <About ref={aboutRef} />
+      <Services ref={servicesRef} />
+      <Contacts ref={contactsRef} />
     </div>
   );
 };
