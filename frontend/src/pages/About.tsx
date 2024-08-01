@@ -4,7 +4,7 @@ import placeholderImage from "../assets/PlaceholderImage.png";
 import ReactStars from "react-stars";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 
-const About = forwardRef<HTMLDivElement, {}>((props, ref) => {
+const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
     {
       id: 1,

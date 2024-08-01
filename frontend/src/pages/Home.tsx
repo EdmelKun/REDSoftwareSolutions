@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, forwardRef } from "react";
 import { divVariants } from "../animationVariants/variants";
 
-const Home = forwardRef<HTMLDivElement, {}>((props, ref) => {
+const Home = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const [index, setIndex] = useState(0);
 
   const services = [
@@ -20,7 +20,7 @@ const Home = forwardRef<HTMLDivElement, {}>((props, ref) => {
     }, 3000);
 
     return () => clearInterval(interval);
-  }, []);
+  }, [services.length]);
   return (
     <>
       <div
