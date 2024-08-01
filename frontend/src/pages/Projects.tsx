@@ -5,7 +5,7 @@ import { Project } from "../types";
 import { getMonthAndYear } from "../utils/dateConversion";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 
-const Projects = forwardRef<HTMLDivElement, {}>((props, ref) => {
+const Projects = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
