@@ -46,10 +46,10 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       viewport={{
         once: true,
       }}
-      className="grid h-[100vh] items-center"
+      className="grid  items-center"
       ref={ref}
     >
-      <div className="grid grid-cols-10">
+      <div className="grid grid-cols-10 h-[100vh]">
         <div className="flex col-span-6 justify-center items-center flex-col gap-5">
           <span className="text-5xl font-medium">About Us</span>
           <span className="w-[90%]">
@@ -91,7 +91,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
         </div>
         <div className="flex col-span-4 justify-center items-center">
           <img
-            className="rounded-xl h-[70%] border-2 shadow border-gray-500"
+            className="rounded-xl h-[50%] border-2 shadow border-gray-500"
             src={placeholderImage}
           />
         </div>

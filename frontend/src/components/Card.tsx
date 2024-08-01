@@ -4,8 +4,7 @@ import { useState } from "react";
 
 const CardComponent = ({
   name,
-  startDate,
-  endDate,
+  description,
   imageLink,
   variants,
   custom,
@@ -41,7 +40,7 @@ const CardComponent = ({
         {show && (
           <div className=" flex flex-col">
             <span className="text-3xl font-bold text-gray-200">{name}</span>
-            <span className="text-yellow-400 font-medium">{`${startDate} - ${endDate}`}</span>
+            <span className="text-yellow-400 font-medium">{description}</span>
           </div>
         )}
       </motion.div>
