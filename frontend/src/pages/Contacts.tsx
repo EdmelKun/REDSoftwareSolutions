@@ -8,7 +8,7 @@ import {
   EnvelopeIcon,
 } from "@heroicons/react/24/outline";
 
-const Contacts = forwardRef<HTMLDivElement, {}>((props, ref) => {
+const Contacts = forwardRef<HTMLDivElement, {}>((_props, ref) => {
   const contactData = [
     {
       id: 1,

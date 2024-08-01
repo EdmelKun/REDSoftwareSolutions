@@ -4,7 +4,7 @@ import CardComponent from "../components/Card";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 import { Service } from "../types";
 
-const Services = forwardRef<HTMLDivElement, {}>((props, ref) => {
+const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
   const [data, setData] = useState([]);
 
   useEffect(() => {
