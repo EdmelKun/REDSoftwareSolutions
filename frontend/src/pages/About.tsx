@@ -1,6 +1,6 @@
 import { forwardRef } from "react";
 import { motion } from "framer-motion";
-import placeholderImage from "../assets/PlaceholderImage.png";
+import BackgroundDesign from "../assets/BackgroundDesign.png";
 import ReactStars from "react-stars";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 
@@ -46,13 +46,13 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       viewport={{
         once: true,
       }}
-      className="grid  items-center"
+      className="grid items-center"
       ref={ref}
     >
       <div className="grid grid-cols-10 h-[100vh]">
         <div className="flex col-span-6 justify-center items-center flex-col gap-5">
-          <span className="text-5xl font-medium">About Us</span>
-          <span className="w-[90%]">
+          <span className="text-5xl font-medium font-poppins">About Us</span>
+          <span className="w-[90%] font-poppins">
             We are a team of developers who are passionate about creating high
             quality software solutions. We have experience in a wide range of
             technologies and are always looking to learn more. We are dedicated
@@ -73,7 +73,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
                   custom={index}
                   className="flex justify-between items-center p-4 gap-2 bg-white shadow-md rounded-md"
                 >
-                  <a className="text-lg font-bold text-gray-700">
+                  <a className="text-lg font-bold text-gray-700 font-poppins">
                     {trait.trait}
                   </a>
                   <ReactStars
@@ -92,7 +92,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
         <div className="flex col-span-4 justify-center items-center">
           <img
             className="rounded-xl h-[50%] border-2 shadow border-gray-500"
-            src={placeholderImage}
+            src={BackgroundDesign}
           />
         </div>
       </div>

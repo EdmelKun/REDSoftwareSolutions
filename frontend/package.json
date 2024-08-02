@@ -13,6 +13,7 @@
   "license": "ISC",
   "description": "",
   "dependencies": {
+    "@emailjs/browser": "^4.4.1",
     "@heroicons/react": "^2.1.5",
     "@mantine/core": "^7.10.2",
     "@mantine/hooks": "^7.10.2",

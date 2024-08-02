@@ -6,6 +6,7 @@ import Home from "../pages/Home";
 import Services from "./Services";
 import About from "./About";
 import LandingBG from "../assets/landingBG.jpg";
+import MainBackground from "../assets/MainBackground.png";
 import logo from "../assets/CompanyLogo.png";
 import Contacts from "./Contacts";
 
@@ -52,7 +53,7 @@ const LandingPage = () => {
     <div
       className="bg-gray-100 bg-repeat"
       style={{
-        backgroundImage: `url(${LandingBG})`,
+        backgroundImage: `url(${MainBackground})`,
       }}
     >
       <motion.div
