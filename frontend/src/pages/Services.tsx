@@ -5,7 +5,7 @@ import { divVariants, itemVariants } from "../animationVariants/variants";
 import { Service } from "../types";
 
 const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
-  const [data, setData] = useState([]);
+  const [data, setData] = useState<Service[]>([]);
 
   useEffect(() => {
     fetch("http://localhost:3000/api/services")
@@ -21,25 +21,23 @@ const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
       viewport={{
         once: true,
       }}
-      className=" h-[100vh] justify-center "
+      className="h-[100vh] justify-center"
       ref={ref}
     >
       <div className="flex justify-center items-center h-[25%]">
-        <span className="text-5xl font-medium">Our Services</span>
+        <span className="text-5xl font-medium font-poppins">Our Services</span>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-5  h-[75%]  ">
-        {data.map((service: Service, index) => {
-          return (
-            <CardComponent
-              key={service.id}
-              name={service.name}
-              description={service.description}
-              imageLink={service.imageLink}
-              variants={itemVariants}
-              custom={index}
-            />
-          );
-        })}
+      <div className="flex flex-wrap justify-center items-center gap-5 h-[75%]">
+        {data.map((service: Service, index) => (
+          <CardComponent
+            key={service.id}
+            name={service.name}
+            description={service.description}
+            imageLink={service.imageLink}
+            variants={itemVariants}
+            custom={index}
+          />
+        ))}
       </div>
     </motion.div>
   );
