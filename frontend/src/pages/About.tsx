@@ -1,8 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import BackgroundDesign from "../assets/BackgroundDesign.png";
 import ReactStars from "react-stars";
 import { divVariants, itemVariants } from "../animationVariants/variants";
+import BackgroundDesign2 from "../assets/BackgroundDesign2.png";
+import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
+import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
+import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -37,6 +40,25 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       rating: 5,
     },
   ];
+
+  const images = [
+    BackgroundDesign2,
+    BackgroundDesign3,
+    BackgroundDesign4,
+    BackgroundDesign5,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
 
   return (
     <motion.div
@@ -90,9 +112,15 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           </div>
         </div>
         <div className="flex col-span-4 justify-center items-center">
-          <img
-            className="rounded-xl h-[50%] border-2 shadow border-gray-500"
-            src={BackgroundDesign}
+          <motion.img
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt="Background Design"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="rounded-xl border-2 shadow border-gray-500 h-[50%] transition-opacity duration-1000"
+            style={{ width: "90%" }}
           />
         </div>
       </div>
