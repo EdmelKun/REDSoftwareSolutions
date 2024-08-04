@@ -68,11 +68,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       viewport={{
         once: true,
       }}
-<<<<<<< HEAD
-      className="grid  items-center"
-=======
       className="grid items-center"
->>>>>>> 4f18623fd182463aee2d57a91fd560eb0d1aea34
       ref={ref}
     >
       <div className="grid grid-cols-10 h-[100vh]">
@@ -116,11 +112,6 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           </div>
         </div>
         <div className="flex col-span-4 justify-center items-center">
-<<<<<<< HEAD
-          <img
-            className="rounded-xl h-[50%] border-2 shadow border-gray-500"
-            src={placeholderImage}
-=======
           <motion.img
             key={currentImageIndex}
             src={images[currentImageIndex]}
@@ -130,7 +121,6 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
             exit={{ opacity: 0 }}
             className="rounded-xl border-2 shadow border-gray-500 h-[50%] transition-opacity duration-1000"
             style={{ width: "90%" }}
->>>>>>> 4f18623fd182463aee2d57a91fd560eb0d1aea34
           />
         </div>
       </div>
