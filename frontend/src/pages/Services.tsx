@@ -6,9 +6,11 @@ import { Service } from "../types";
 
 const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
   const [data, setData] = useState<Service[]>([]);
+  const backendUrl =
+    import.meta.env.PRODUCTION_BACKEND_URL || "http://localhost:3000";
 
   useEffect(() => {
-    fetch("http://localhost:3000/api/services")
+    fetch(`${backendUrl}/api/services`)
       .then((res) => res.json())
       .then((data) => setData(data));
   }, []);
