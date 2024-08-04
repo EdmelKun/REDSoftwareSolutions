@@ -7,7 +7,8 @@ import { Service } from "../types";
 const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
   const [data, setData] = useState<Service[]>([]);
   const backendUrl =
-    import.meta.env.PRODUCTION_BACKEND_URL || "http://localhost:3000";
+    "https://redsoftwaresolutions-backend.onrender.com" ||
+    "http://localhost:3000";
 
   useEffect(() => {
     fetch(`${backendUrl}/api/services`)
