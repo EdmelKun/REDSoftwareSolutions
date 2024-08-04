@@ -1,8 +1,11 @@
-import { forwardRef } from "react";
+import { forwardRef, useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import placeholderImage from "../assets/PlaceholderImage.png";
 import ReactStars from "react-stars";
 import { divVariants, itemVariants } from "../animationVariants/variants";
+import BackgroundDesign2 from "../assets/BackgroundDesign2.png";
+import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
+import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
+import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -38,6 +41,25 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
     },
   ];
 
+  const images = [
+    BackgroundDesign2,
+    BackgroundDesign3,
+    BackgroundDesign4,
+    BackgroundDesign5,
+  ];
+
+  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentImageIndex((prevIndex) =>
+        prevIndex === images.length - 1 ? 0 : prevIndex + 1
+      );
+    }, 3000); // Change image every 3 seconds
+
+    return () => clearInterval(interval);
+  }, [images.length]);
+
   return (
     <motion.div
       variants={divVariants}
@@ -46,13 +68,17 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       viewport={{
         once: true,
       }}
+<<<<<<< HEAD
       className="grid  items-center"
+=======
+      className="grid items-center"
+>>>>>>> 4f18623fd182463aee2d57a91fd560eb0d1aea34
       ref={ref}
     >
       <div className="grid grid-cols-10 h-[100vh]">
         <div className="flex col-span-6 justify-center items-center flex-col gap-5">
-          <span className="text-5xl font-medium">About Us</span>
-          <span className="w-[90%]">
+          <span className="text-5xl font-medium font-poppins">About Us</span>
+          <span className="w-[90%] font-poppins">
             We are a team of developers who are passionate about creating high
             quality software solutions. We have experience in a wide range of
             technologies and are always looking to learn more. We are dedicated
@@ -73,7 +99,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
                   custom={index}
                   className="flex justify-between items-center p-4 gap-2 bg-white shadow-md rounded-md"
                 >
-                  <a className="text-lg font-bold text-gray-700">
+                  <a className="text-lg font-bold text-gray-700 font-poppins">
                     {trait.trait}
                   </a>
                   <ReactStars
@@ -90,9 +116,21 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           </div>
         </div>
         <div className="flex col-span-4 justify-center items-center">
+<<<<<<< HEAD
           <img
             className="rounded-xl h-[50%] border-2 shadow border-gray-500"
             src={placeholderImage}
+=======
+          <motion.img
+            key={currentImageIndex}
+            src={images[currentImageIndex]}
+            alt="Background Design"
+            initial={{ opacity: 0 }}
+            animate={{ opacity: 1 }}
+            exit={{ opacity: 0 }}
+            className="rounded-xl border-2 shadow border-gray-500 h-[50%] transition-opacity duration-1000"
+            style={{ width: "90%" }}
+>>>>>>> 4f18623fd182463aee2d57a91fd560eb0d1aea34
           />
         </div>
       </div>
