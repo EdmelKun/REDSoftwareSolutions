@@ -112,7 +112,7 @@ const Contacts = forwardRef<HTMLDivElement, {}>((_props, ref) => {
         </div>
         <div className="flex w-[50%] justify-center items-center">
           <div className="flex flex-col w-[100%] bg-zinc-300 justify-center items-center rounded-lg m-10 mt-[15vh]">
-            <span className="text-5xl font-medium my-10 font-roboto font-bold">Contact Us</span>
+            <span className="text-5xl my-10 font-roboto font-bold">Contact Us</span>
             <form
               ref={formRef}
               className="flex flex-col w-[90%] h-[50%] justify-center gap-5"

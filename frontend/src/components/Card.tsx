@@ -25,7 +25,7 @@ const CardComponent = ({
       whileHover={{
         scale: 1.1,
       }}
-      className="h-60 w-[25%] bg-cover overflow-hidden bg-no-repeat bg-center border-2 border-gray-900 shadow-md rounded-xl"
+      className="h-60 w-[25%] bg-cover overflow-hidden bg-no-repeat bg-center border-2 border-gray-200 shadow-lg rounded-xl"
       style={{
         backgroundImage: `url(${imageLink})`,
       }}
