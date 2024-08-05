@@ -8,6 +8,7 @@ import About from "./About";
 import MainBackground from "../assets/MainBackground.png";
 import logo from "../assets/CompanyLogo.png";
 import Contacts from "./Contacts";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -76,6 +77,7 @@ const LandingPage = () => {
       <About ref={aboutRef} />
       <Services ref={servicesRef} />
       <Contacts ref={contactsRef} />
+      <Footer /> {/* Add Footer component */}
     </div>
   );
 };

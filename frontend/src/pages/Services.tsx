@@ -28,7 +28,7 @@ const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
       ref={ref}
     >
       <div className="flex justify-center items-center h-[25%]">
-        <span className="text-5xl font-medium font-poppins">Our Services</span>
+      <span className="text-5xl font-roboto font-bold">Our Services</span>
       </div>
       <div className="flex flex-wrap justify-center items-center gap-5 h-[75%]">
         {data.map((service: Service, index) => (

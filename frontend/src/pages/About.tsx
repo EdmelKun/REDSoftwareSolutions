@@ -1,11 +1,12 @@
 import { forwardRef, useState, useEffect } from "react";
-import { motion } from "framer-motion";
+import { useSprings, animated } from "@react-spring/web";
 import ReactStars from "react-stars";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 import BackgroundDesign2 from "../assets/BackgroundDesign2.png";
 import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
 import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
 import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
+import { motion } from "framer-motion";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -60,6 +61,14 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
     return () => clearInterval(interval);
   }, [images.length]);
 
+  const springs = useSprings(
+    images.length,
+    images.map((_, index) => ({
+      opacity: index === currentImageIndex ? 1 : 0,
+      config: { duration: 1000 },
+    }))
+  );
+
   return (
     <motion.div
       variants={divVariants}
@@ -73,7 +82,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
     >
       <div className="grid grid-cols-10 h-[100vh]">
         <div className="flex col-span-6 justify-center items-center flex-col gap-5">
-          <span className="text-5xl font-medium font-poppins">About Us</span>
+          <span className="text-5xl font-roboto font-bold">About Us</span>
           <span className="w-[90%] font-poppins">
             We are a team of developers who are passionate about creating high
             quality software solutions. We have experience in a wide range of
@@ -111,17 +120,23 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
             </ul>
           </div>
         </div>
-        <div className="flex col-span-4 justify-center items-center">
-          <motion.img
-            key={currentImageIndex}
-            src={images[currentImageIndex]}
-            alt="Background Design"
-            initial={{ opacity: 0 }}
-            animate={{ opacity: 1 }}
-            exit={{ opacity: 0 }}
-            className="rounded-xl border-2 shadow border-gray-500 h-[50%] transition-opacity duration-1000"
-            style={{ width: "90%" }}
-          />
+        <div className="flex col-span-4 justify-center items-center relative h-full">
+          {springs.map((style, index) => (
+            <animated.img
+              key={index}
+              src={images[index]}
+              alt="Background Design"
+              style={{
+                ...style,
+                position: "absolute",
+                width: "90%",
+                height: "50%",
+                borderRadius: "10px",
+                border: "2px solid gray",
+                boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
+              }}
+            />
+          ))}
         </div>
       </div>
     </motion.div>
