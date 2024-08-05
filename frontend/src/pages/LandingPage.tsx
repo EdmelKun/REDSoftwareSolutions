@@ -5,9 +5,10 @@ import { navBarVariants } from "../animationVariants/variants";
 import Home from "../pages/Home";
 import Services from "./Services";
 import About from "./About";
-import LandingBG from "../assets/landingBG.jpg";
+import MainBackground from "../assets/MainBackground.png";
 import logo from "../assets/CompanyLogo.png";
 import Contacts from "./Contacts";
+import Footer from "../components/Footer";
 
 const LandingPage = () => {
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -52,7 +53,7 @@ const LandingPage = () => {
     <div
       className="bg-gray-100 bg-repeat"
       style={{
-        backgroundImage: `url(${LandingBG})`,
+        backgroundImage: `url(${MainBackground})`,
       }}
     >
       <motion.div
@@ -76,6 +77,7 @@ const LandingPage = () => {
       <About ref={aboutRef} />
       <Services ref={servicesRef} />
       <Contacts ref={contactsRef} />
+      <Footer /> {/* Add Footer component */}
     </div>
   );
 };
