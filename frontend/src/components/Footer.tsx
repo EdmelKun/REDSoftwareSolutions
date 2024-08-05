@@ -2,51 +2,24 @@ import { FaFacebookF, FaTwitter, FaLinkedinIn } from 'react-icons/fa'; // Import
 
 const Footer = () => {
   return (
-    <footer style={styles.container}>
-      <div style={styles.socialContainer}>
-        <p style={styles.connectText}>Connect with us:</p>
-        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" style={styles.icon}>
+    <footer className="bg-[#003366] p-5 text-center">
+      <div className="flex justify-center items-center mb-2">
+        <p className="text-white text-lg font-bold mr-2">Connect with us:</p>
+        <a href="https://facebook.com" target="_blank" rel="noopener noreferrer" className="mx-2">
           <FaFacebookF size={24} color="#fff" />
         </a>
-        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" style={styles.icon}>
+        <a href="https://twitter.com" target="_blank" rel="noopener noreferrer" className="mx-2">
           <FaTwitter size={24} color="#fff" />
         </a>
-        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" style={styles.icon}>
+        <a href="https://linkedin.com" target="_blank" rel="noopener noreferrer" className="mx-2">
           <FaLinkedinIn size={24} color="#fff" />
         </a>
       </div>
-      <p style={styles.copyrightText}>
+      <p className="text-white text-sm">
         &copy; {new Date().getFullYear()} RED Software Solutions. All rights reserved.
       </p>
     </footer>
   );
-};
-
-const styles = {
-  container: {
-    backgroundColor: '#003366', // Dark blue background
-    padding: '20px',
-    textAlign: 'center',
-  },
-  socialContainer: {
-    display: 'flex',
-    justifyContent: 'center',
-    alignItems: 'center',
-    marginBottom: '10px',
-  },
-  connectText: {
-    color: '#fff',
-    fontSize: '16px',
-    fontWeight: 'bold',
-    marginRight: '10px',
-  },
-  icon: {
-    marginHorizontal: '10px',
-  },
-  copyrightText: {
-    color: '#fff',
-    fontSize: '14px',
-  },
 };
 
 export default Footer;
