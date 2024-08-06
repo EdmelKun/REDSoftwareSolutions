@@ -7,6 +7,7 @@ import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
 import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
 import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
 import { motion } from "framer-motion";
+import Goal from "../components/Goal";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -83,7 +84,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       <div className="grid grid-cols-10 h-[100vh]">
         <div className="flex col-span-6 justify-center items-center flex-col gap-5">
           <span className="text-5xl font-roboto font-bold">About Us</span>
-          <span className="w-[90%] font-poppins">
+          <span className="w-[90%] text-lg">
             We are a team of developers who are passionate about creating high
             quality software solutions. We have experience in a wide range of
             technologies and are always looking to learn more. We are dedicated
@@ -139,6 +140,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           ))}
         </div>
       </div>
+      <Goal />
     </motion.div>
   );
 });
