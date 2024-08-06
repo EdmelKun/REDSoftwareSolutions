@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { forwardRef, useState, useRef } from "react";
-import { divVariants, itemVariants } from "../animationVariants/variants";
+import { divVariants } from "../animationVariants/variants";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -27,7 +27,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       title: "Location",
       data: "1392 Mansion Road Roxas City, Capiz",
       icon: <MapPinIcon />,
-      action: function () {
+      action: () => {
         window.location.href =
           "https://www.google.com/maps/place/1392+Mansion+Rd,+Roxas+City,+Capiz/@11.5759542,122.7509515,17z/data=!3m1!4b1!4m5!3m4!1s0x33a5f2fca1c6c9e5:0xdd059e012969ef91!8m2!3d11.5759542!4d122.7535264?entry=ttu";
       },
@@ -37,7 +37,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       title: "Phone Number",
       data: "09336216080",
       icon: <PhoneIcon />,
-      action: function () {
+      action: () => {
         copyToClipboard("09336216080");
       },
     },
@@ -46,7 +46,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       title: "Domain",
       data: "www.RedSoftwareSolutions.com",
       icon: <GlobeAltIcon />,
-      action: function () {
+      action: () => {
         window.location.href =
           "https://redsoftwaresolutions-i5yh.onrender.com/";
       },
@@ -56,7 +56,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       title: "Email",
       data: "redsoftwaresolutions1@gmail.com",
       icon: <EnvelopeIcon />,
-      action: function () {
+      action: () => {
         copyToClipboard("redsoftwaresolutions1@gmail.com");
       },
     },
@@ -74,9 +74,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         publicKey: "Yz8Pw8dBJdrBeAnxK",
       })
       .then(
-        (res) => {
-          console.log(res.status);
-          console.log("SUCCESS!");
+        () => {
           setLoading(false);
           formRef.current!.reset();
 
@@ -107,21 +105,14 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         ref={ref}
       >
         <div className="grid grid-cols-2 w-[50%] m-12 gap-5 mt-[15vh]">
-          {contactData.map((contact, index) => {
+          {contactData.map((contact) => {
             return (
-              <button
+              <motion.button
                 key={contact.id}
                 onClick={contact.action}
                 className="flex flex-col bg-gray-900 justify-evenly items-center rounded-lg hover:bg-gray-800 transition duration-300"
               >
-                <motion.div
-                  variants={itemVariants}
-                  initial="hidden"
-                  whileInView="visible"
-                  viewport={{ once: true }}
-                  custom={index}
-                  className="flex flex-col justify-evenly items-center rounded-lg p-5"
-                >
+                <div className="flex flex-col justify-evenly items-center rounded-lg p-5">
                   <span className="h-20 w-20 text-gray-200">
                     {contact.icon}
                   </span>
@@ -129,14 +120,16 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
                     {contact.title}
                   </span>
                   <span className="text-md text-gray-200">{contact.data}</span>
-                </motion.div>
-              </button>
+                </div>
+              </motion.button>
             );
           })}
         </div>
         <div className="flex w-[50%] justify-center items-center">
           <div className="flex flex-col w-[100%] bg-zinc-300 justify-center items-center rounded-lg m-10 mt-[15vh]">
-            <span className="text-5xl font-medium my-10 font-roboto font-bold">Contact Us</span>
+            <span className="text-5xl my-10 font-roboto font-bold">
+              Contact Us
+            </span>
             <form
               ref={formRef}
               className="flex flex-col w-[90%] h-[50%] justify-center gap-5"
