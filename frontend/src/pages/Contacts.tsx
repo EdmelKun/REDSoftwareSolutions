@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
 import { forwardRef, useState, useRef } from "react";
-import { divVariants } from "../animationVariants/variants";
+import { divVariants, itemVariants } from "../animationVariants/variants";
 import {
   MapPinIcon,
   PhoneIcon,
@@ -105,11 +105,18 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         ref={ref}
       >
         <div className="grid grid-cols-2 w-[50%] m-12 gap-5 mt-[15vh]">
-          {contactData.map((contact) => {
+          {contactData.map((contact, index) => {
             return (
               <motion.button
                 key={contact.id}
                 onClick={contact.action}
+                variants={itemVariants}
+                initial="hidden"
+                whileInView="visible"
+                viewport={{
+                  once: true,
+                }}
+                custom={index}
                 className="flex flex-col bg-gray-900 justify-evenly items-center rounded-lg hover:bg-gray-800 transition duration-300"
               >
                 <div className="flex flex-col justify-evenly items-center rounded-lg p-5">

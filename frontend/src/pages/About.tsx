@@ -71,18 +71,17 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   );
 
   return (
-    <motion.div
-      variants={divVariants}
-      initial="hidden"
-      whileInView="visible"
-      viewport={{
-        once: true,
-      }}
-      className="grid items-center"
-      ref={ref}
-    >
+    <div className="grid items-center" ref={ref}>
       <div className="grid grid-cols-10 h-[100vh]">
-        <div className="flex col-span-6 justify-center items-center flex-col gap-5">
+        <motion.div
+          variants={divVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+          }}
+          className="flex col-span-6 justify-center items-center flex-col gap-5"
+        >
           <span className="text-5xl font-roboto font-bold">About Us</span>
           <span className="w-[90%] text-lg">
             We are a team of developers who are passionate about creating high
@@ -120,8 +119,16 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
               ))}
             </ul>
           </div>
-        </div>
-        <div className="flex col-span-4 justify-center items-center relative h-full">
+        </motion.div>
+        <motion.div
+          variants={divVariants}
+          initial="hidden"
+          whileInView="visible"
+          viewport={{
+            once: true,
+          }}
+          className="flex col-span-4 justify-center items-center relative h-full"
+        >
           {springs.map((style, index) => (
             <animated.img
               key={index}
@@ -138,10 +145,10 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
               }}
             />
           ))}
-        </div>
+        </motion.div>
       </div>
       <Goal />
-    </motion.div>
+    </div>
   );
 });
 
