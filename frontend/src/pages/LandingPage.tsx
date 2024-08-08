@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import React, { useRef, useEffect } from "react";
+import React, { useRef, useEffect, useState } from "react";
 import { useLocation, useNavigate } from "react-router-dom";
 import { navBarVariants } from "../animationVariants/variants";
 import Home from "../pages/Home";
@@ -9,6 +9,7 @@ import MainBackground from "../assets/MainBackground.png";
 import logo from "../assets/CompanyLogo.png";
 import Contacts from "./Contacts";
 import Footer from "../components/Footer";
+import { TfiMenuAlt } from "react-icons/tfi";
 
 const LandingPage = () => {
   const servicesRef = useRef<HTMLDivElement | null>(null);
@@ -17,9 +18,14 @@ const LandingPage = () => {
   const contactsRef = useRef<HTMLDivElement | null>(null);
   const navigate = useNavigate();
   const location = useLocation();
+  const [openMenu, setOpenMenu] = useState(false);
 
   const handleScrollTo = (section: string) => {
     navigate(`/${section}`);
+  };
+
+  const toggleMenu = () => {
+    setOpenMenu(!openMenu);
   };
 
   useEffect(() => {
@@ -67,17 +73,27 @@ const LandingPage = () => {
             <img className="h-10" src={logo} />
           </button>
         </div>
-        <div className="flex justify-evenly">
+        <div className="hidden md:flex justify-evenly">
           <button onClick={() => handleScrollTo("about")}>About</button>
           <button onClick={() => handleScrollTo("services")}>Services</button>
           <button onClick={() => handleScrollTo("contacts")}>Contact</button>
         </div>
+        <div className="md:hidden flex items-center justify-self-end w-[25%]">
+          <TfiMenuAlt onClick={toggleMenu} className="h-10 w-10" />
+        </div>
+        {openMenu && (
+          <div className="md:hidden flex flex-col absolute top-12 gap-6 right-0 bg-gray-900 shadow-md p-8 z-10 rounded-lg">
+            <button onClick={() => handleScrollTo("about")}>About</button>
+            <button onClick={() => handleScrollTo("services")}>Services</button>
+            <button onClick={() => handleScrollTo("contacts")}>Contact</button>
+          </div>
+        )}
       </motion.div>
       <Home ref={homeRef} />
       <About ref={aboutRef} />
       <Services ref={servicesRef} />
       <Contacts ref={contactsRef} />
-      <Footer /> {/* Add Footer component */}
+      <Footer />
     </div>
   );
 };

@@ -72,7 +72,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
 
   return (
     <div className="grid items-center" ref={ref}>
-      <div className="grid grid-cols-10 h-[100vh]">
+      <div className="grid md:grid-cols-10 h-[100vh]">
         <motion.div
           variants={divVariants}
           initial="hidden"
@@ -80,7 +80,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           viewport={{
             once: true,
           }}
-          className="flex col-span-6 justify-center items-center flex-col gap-5"
+          className="flex md:col-span-6 justify-center items-center flex-col gap-5"
         >
           <span className="text-5xl font-roboto font-bold">About Us</span>
           <span className="w-[90%] text-lg">
@@ -91,7 +91,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
             looking for new and exciting projects to work on.
           </span>
           <div className="flex justify-center">
-            <ul className="grid grid-cols-1 sm:grid-cols-2 gap-4 list-none p-0 w-full max-w-4xl">
+            <ul className="grid grid-cols-2 gap-4 list-none p-0 w-full max-w-4xl">
               {companyTraits.map((trait, index) => (
                 <motion.li
                   variants={itemVariants}
@@ -102,12 +102,13 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
                   }}
                   key={trait.id}
                   custom={index}
-                  className="flex justify-between items-center p-4 gap-2 bg-white shadow-md rounded-md"
+                  className="flex h-16 md:h-full justify-between items-center p-4 gap-2 bg-white shadow-md rounded-md"
                 >
-                  <a className="text-lg font-bold text-gray-700 font-poppins">
+                  <a className="md:text-lg text-sm font-bold text-gray-700 font-poppins">
                     {trait.trait}
                   </a>
                   <ReactStars
+                    className="grid grid-cols-2 text-xs md:block md:grid-cols-none md:text-normal"
                     count={5}
                     value={trait.rating}
                     size={24}
@@ -127,7 +128,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           viewport={{
             once: true,
           }}
-          className="flex col-span-4 justify-center items-center relative h-full"
+          className="md:flex md:col-span-4 md:justify-center md:items-center md:relative md:h-full hidden"
         >
           {springs.map((style, index) => (
             <animated.img

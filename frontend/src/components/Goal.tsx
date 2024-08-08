@@ -30,9 +30,9 @@ const Goal = () => {
         viewport={{
           once: true,
         }}
-        className="grid grid-cols-12 "
+        className="grid md:grid-cols-12 "
       >
-        <div className="flex col-span-5 items-center justify-center">
+        <div className="md:flex md:col-span-5 md:items-center md:justify-center hidden">
           <img
             src={textObject[0].image}
             alt="goal"
@@ -43,7 +43,7 @@ const Goal = () => {
           <span className="text-5xl font-roboto font-bold">
             {textObject[0].title}
           </span>
-          <span className="text-lg mx-16 ">{textObject[0].description}</span>
+          <span className="text-lg md:mx-16 mx-8 ">{textObject[0].description}</span>
         </div>
       </motion.div>
       <motion.div
@@ -53,15 +53,15 @@ const Goal = () => {
         viewport={{
           once: true,
         }}
-        className="grid grid-cols-12 "
+        className="grid md:grid-cols-12 "
       >
         <div className="flex flex-col col-span-7 items-center justify-center gap-6">
           <span className="text-5xl font-roboto font-bold">
             {textObject[1].title}
           </span>
-          <span className="text-lg mx-16 ">{textObject[1].description}</span>
+          <span className="text-lg md:mx-16 mx-8 ">{textObject[1].description}</span>
         </div>
-        <div className="flex col-span-5 items-center justify-center">
+        <div className="md:flex md:col-span-5 md:items-center md:justify-center hidden">
           <img
             src={textObject[1].image}
             alt="goal"
