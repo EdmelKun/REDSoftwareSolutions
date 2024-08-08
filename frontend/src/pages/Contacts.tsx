@@ -21,6 +21,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       }
     );
   };
+
   const contactData = [
     {
       id: 1,
@@ -61,6 +62,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       },
     },
   ];
+
   const formRef = useRef<HTMLFormElement>(null);
   const [loading, setLoading] = useState(false);
   const [modalMessage, setModalMessage] = useState<string | null>(null);
@@ -77,13 +79,11 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         () => {
           setLoading(false);
           formRef.current!.reset();
-
           setModalMessage("Message sent successfully!");
         },
         (error) => {
           console.log("FAILED...", error.text);
           setLoading(false);
-
           setModalMessage("Failed to send message. Please try again.");
         }
       );
@@ -101,7 +101,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         viewport={{
           once: true,
         }}
-        className="flex flex-col-reverse md:flex-row md:h-[100vh] justify-center items-center md:items-stretch "
+        className="flex flex-col-reverse md:flex-row md:h-[100vh] justify-center items-center md:items-stretch"
         ref={ref}
       >
         <div className="grid md:grid-cols-2 md:w-[50%] w-[75%] md:items-stretch md:justify-normal items-center justify-center md:m-12 gap-5 mb-5">
@@ -123,10 +123,12 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
                   <span className="h-20 w-20 text-gray-200">
                     {contact.icon}
                   </span>
-                  <span className="text-lg font-bold text-gray-200">
+                  <span className="text-lg font-bold text-gray-200 font-roboto">
                     {contact.title}
                   </span>
-                  <span className="text-md text-gray-200">{contact.data}</span>
+                  <span className="text-md text-gray-200 font-roboto">
+                    {contact.data}
+                  </span>
                 </div>
               </motion.button>
             );
@@ -143,28 +145,28 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
               onSubmit={sendEmail}
             >
               <input
-                className="h-14 rounded-lg"
+                className="h-14 rounded-lg font-roboto"
                 type="text"
                 name="from_name"
                 placeholder="Enter your name"
                 required
               />
               <input
-                className="h-14 rounded-lg"
+                className="h-14 rounded-lg font-roboto"
                 type="email"
                 name="email_id"
                 placeholder="Enter your valid email"
                 required
               />
               <textarea
-                className="resize-none rounded-lg"
+                className="resize-none rounded-lg font-roboto"
                 name="message"
                 rows={8}
                 placeholder="What would you like to inquire?"
                 required
               />
               <button
-                className={`h-14 w-[25%] bg-gray-900 text-gray-200 rounded-lg self-center mb-5 ${
+                className={`h-14 w-[25%] bg-gray-900 text-gray-200 rounded-lg self-center mb-5 font-roboto ${
                   loading ? "opacity-50 cursor-not-allowed" : ""
                 }`}
                 type="submit"
