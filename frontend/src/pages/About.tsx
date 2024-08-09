@@ -11,36 +11,12 @@ import Goal from "../components/Goal";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
-    {
-      id: 1,
-      trait: "Career Development",
-      rating: 5,
-    },
-    {
-      id: 2,
-      trait: "Work Life Balance",
-      rating: 5,
-    },
-    {
-      id: 3,
-      trait: "High Quality Projects",
-      rating: 5,
-    },
-    {
-      id: 4,
-      trait: "Continuous Learning",
-      rating: 5,
-    },
-    {
-      id: 5,
-      trait: "Customer Centric",
-      rating: 5,
-    },
-    {
-      id: 6,
-      trait: "Long Term Thinking",
-      rating: 5,
-    },
+    { id: 1, trait: "Career Development", rating: 5 },
+    { id: 2, trait: "Work Life Balance", rating: 5 },
+    { id: 3, trait: "High Quality Projects", rating: 5 },
+    { id: 4, trait: "Continuous Learning", rating: 5 },
+    { id: 5, trait: "Customer Centric", rating: 5 },
+    { id: 6, trait: "Long Term Thinking", rating: 5 },
   ];
 
   const images = [
@@ -77,19 +53,19 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           variants={divVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{
-            once: true,
-          }}
+          viewport={{ once: true }}
           className="flex md:col-span-6 justify-center items-center flex-col gap-5"
         >
-          <span className="text-5xl font-roboto font-bold">About Us</span>
-          <span className="w-[90%] text-lg">
-            We are a team of developers who are passionate about creating high
-            quality software solutions. We have experience in a wide range of
-            technologies and are always looking to learn more. We are dedicated
-            to providing the best possible service to our clients and are always
-            looking for new and exciting projects to work on.
-          </span>
+          <div className="bg-white bg-opacity-75 p-5 rounded-lg shadow-lg w-full max-w-4xl">
+            <span className="text-5xl font-roboto font-bold block text-center">About Us</span>
+            <span className="w-full text-lg font-roboto block text-center">
+              We are a team of developers who are passionate about creating high
+              quality software solutions. We have experience in a wide range of
+              technologies and are always looking to learn more. We are dedicated
+              to providing the best possible service to our clients and are always
+              looking for new and exciting projects to work on.
+            </span>
+          </div>
           <div className="flex justify-center">
             <ul className="grid grid-cols-2 gap-4 list-none p-0 w-full max-w-4xl">
               {companyTraits.map((trait, index) => (
@@ -97,16 +73,14 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
                   variants={itemVariants}
                   initial="hidden"
                   whileInView="visible"
-                  viewport={{
-                    once: true,
-                  }}
+                  viewport={{ once: true }}
                   key={trait.id}
                   custom={index}
                   className="flex h-16 md:h-full justify-between items-center p-4 gap-2 bg-white shadow-md rounded-md"
                 >
-                  <a className="md:text-lg text-sm font-bold text-gray-700 font-poppins">
+                  <span className="md:text-lg text-sm font-bold text-gray-700 font-poppins">
                     {trait.trait}
-                  </a>
+                  </span>
                   <ReactStars
                     className="grid grid-cols-2 text-xs md:block md:grid-cols-none md:text-normal"
                     count={5}
@@ -125,9 +99,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           variants={divVariants}
           initial="hidden"
           whileInView="visible"
-          viewport={{
-            once: true,
-          }}
+          viewport={{ once: true }}
           className="md:flex md:col-span-4 md:justify-center md:items-center md:relative md:h-full hidden"
         >
           {springs.map((style, index) => (
