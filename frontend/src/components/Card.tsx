@@ -1,11 +1,11 @@
 import { CardProps } from "../types";
 import { motion } from "framer-motion";
 import { useState } from "react";
-import Lottie from 'lottie-react';
-import webDevAnimation from '../assets/WebsiteDevelopmentAnimation.json';
-import landingPageAnimation from '../assets/LandingPageAnimation.json';
-import softwareSolutionsAnimation from '../assets/SoftwareSolutionsAnimation.json';
-import consultationAnimation from '../assets/ConsultationAnimation.json';
+import Lottie from "lottie-react";
+import webDevAnimation from "../assets/WebsiteDevelopmentAnimation.json";
+import landingPageAnimation from "../assets/LandingPageAnimation.json";
+import softwareSolutionsAnimation from "../assets/SoftwareSolutionsAnimation.json";
+import consultationAnimation from "../assets/ConsultationAnimation.json";
 
 const animations = [
   webDevAnimation,
@@ -56,10 +56,10 @@ const CardComponent = ({
         )}
         {show && (
           <div className="absolute top-0 left-0 w-full h-full z-0 flex justify-center items-center">
-            <Lottie 
-              animationData={animations[custom]} 
-              loop={false} 
-              autoplay={true} 
+            <Lottie
+              animationData={animations[Number(custom)]}
+              loop={false}
+              autoplay={true}
               style={{ pointerEvents: "none", width: "70%", height: "70%" }}
             />
           </div>
