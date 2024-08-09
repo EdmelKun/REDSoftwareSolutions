@@ -30,7 +30,6 @@ const Goal = () => {
         viewport={{ once: true }}
         className="grid md:grid-cols-12 gap-6"
       >
-        {/* Our Goal Section */}
         <div className="flex flex-col col-span-7 items-center justify-center gap-2 p-3 bg-white bg-opacity-95 rounded-lg border-4 border-blue-300 shadow-lg max-w-md mx-auto">
           <span className="text-3xl md:text-4xl font-roboto font-bold text-center">
             {textObject[0].title}
@@ -44,11 +43,7 @@ const Goal = () => {
             className="h-full w-full object-cover mt-2" // Margin-top for spacing
           />
         </div>
-
-        {/* Space Divider */}
-        <div className="h-10" /> {/* Adjust the height as needed */}
-
-        {/* Our Future Section */}
+        <div className="h-10" />
         <div className="flex flex-col col-span-7 items-center justify-center gap-2 p-3 bg-white bg-opacity-95 rounded-lg border-4 border-red-300 shadow-lg max-w-md mx-auto mt-auto md:col-start-8 md:mt-10"> {/* Set mt-auto to push it down */}
           <span className="text-3xl md:text-4xl font-roboto font-bold text-center">
             {textObject[1].title}

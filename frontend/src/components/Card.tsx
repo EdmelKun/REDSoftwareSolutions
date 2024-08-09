@@ -2,16 +2,16 @@ import { CardProps } from "../types";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Lottie from 'lottie-react';
-import animationData1 from '../assets/WebsiteDevelopmentAnimation.json';
-import animationData2 from '../assets/LandingPageAnimation.json';
-import animationData3 from '../assets/SoftwareSolutionsAnimation.json';
-import animationData4 from '../assets/ConsultationAnimation.json';
+import webDevAnimation from '../assets/WebsiteDevelopmentAnimation.json';
+import landingPageAnimation from '../assets/LandingPageAnimation.json';
+import softwareSolutionsAnimation from '../assets/SoftwareSolutionsAnimation.json';
+import consultationAnimation from '../assets/ConsultationAnimation.json';
 
 const animations = [
-  animationData1,
-  animationData2,
-  animationData3,
-  animationData4,
+  webDevAnimation,
+  landingPageAnimation,
+  softwareSolutionsAnimation,
+  consultationAnimation,
 ];
 
 const CardComponent = ({
