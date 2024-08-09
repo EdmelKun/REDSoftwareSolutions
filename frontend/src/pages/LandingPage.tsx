@@ -76,13 +76,13 @@ const LandingPage = () => {
         <div className="hidden md:flex justify-evenly space-x-4">
   <button
     onClick={() => handleScrollTo("about")}
-    className="px-4 py-2text-lg font-semibold text-whitebg-blue-500 rounded hover:bg-blue-600transition-colors duration-300">About</button>
+    className="px-4 py-2 text-lg font-semibold text-whitebg-blue-500 rounded hover:bg-blue-600transition-colors duration-300">About</button>
   <button
     onClick={() => handleScrollTo("services")}
     className="px-4 py-2 text-lg font-semibold text-whitebg-blue-500 roundedhover:bg-blue-600transition-colors duration-300 ">Services</button>
   <button
     onClick={() => handleScrollTo("contacts")}
-    className="px-4 py-2text-lg font-semibold text-whitebg-blue-500 roundedhover:bg-blue-600transition-colors duration-300">Contact</button>
+    className="px-4 py-2 text-lg font-semibold text-whitebg-blue-500 roundedhover:bg-blue-600transition-colors duration-300">Contact</button>
 </div>
 
         <div className="md:hidden flex items-center justify-self-end w-[25%]">
