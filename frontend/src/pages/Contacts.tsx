@@ -45,7 +45,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
     {
       id: 3,
       title: "Domain",
-      data: "www.RedSoftwareSolutions.com",
+      data: "www.redsoftwaresolutions.org",
       icon: <GlobeAltIcon />,
       action: () => {
         window.location.href =
