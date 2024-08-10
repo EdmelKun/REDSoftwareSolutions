@@ -10,6 +10,7 @@ import {
 import emailjs from "@emailjs/browser";
 import Modal from "../components/Modal";
 
+
 const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(
@@ -104,7 +105,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         className="flex flex-col-reverse md:flex-row md:h-[100vh] justify-center items-center md:items-stretch"
         ref={ref}
       >
-        <div className="grid md:grid-cols-2 md:w-[50%] w-[75%] md:items-stretch md:justify-normal items-center justify-center md:m-12 gap-5 mb-5">
+        <div className="grid md:grid-cols-2 md:w-[40%] w-[40%] h-[60%] md:items-stretch md:justify-normal items-center justify-center md:m-12 gap-5 mb-5">
           {contactData.map((contact, index) => {
             return (
               <motion.button

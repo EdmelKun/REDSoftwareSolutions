@@ -46,22 +46,22 @@ const CardComponent = ({
           backdropFilter: "blur(1px)",
           backgroundColor: "rgba(0,0,0,0.5)",
         }}
-        className="content-center h-full relative"
+        className="content-center h-full relative flex flex-col items-center justify-center"
       >
-        {show && (
-          <div className="absolute top-4 left-0 w-full z-20 flex flex-col items-center text-center">
-            <span className="text-3xl font-bold text-gray-200">{name}</span>
-            <span className="text-yellow-400 font-medium">{description}</span>
-          </div>
-        )}
         {show && (
           <div className="absolute top-0 left-0 w-full h-full z-0 flex justify-center items-center">
             <Lottie 
               animationData={animations[custom]} 
               loop={false} 
               autoplay={true} 
-              style={{ pointerEvents: "none", width: "70%", height: "70%" }}
+              style={{ pointerEvents: "none", width: "50%", height: "50%" }}
             />
+          </div>
+        )}
+        {show && (
+          <div className="absolute bottom-4 left-0 w-full z-20 flex flex-col items-center text-center mt-5">
+            <span className="text-3xl font-bold text-gray-200">{name}</span>
+            <span className="text-yellow-400 font-medium mt-2">{description}</span>
           </div>
         )}
       </motion.div>
