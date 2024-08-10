@@ -33,7 +33,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       setCurrentImageIndex((prevIndex) =>
         prevIndex === images.length - 1 ? 0 : prevIndex + 1
       );
-    }, 3000); // Change image every 3 seconds
+    }, 3000);
 
     return () => clearInterval(interval);
   }, [images.length]);
@@ -56,16 +56,16 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           viewport={{ once: true }}
           className="flex md:col-span-6 justify-center items-center flex-col gap-5"
         >
-          <div className="bg-white bg-opacity-75 p-5 rounded-lg shadow-lg w-full max-w-4xl">
-            <span className="text-5xl font-roboto font-bold block text-center">About Us</span>
-            <span className="w-full text-lg font-roboto block text-center">
+            <span className="text-5xl font-roboto font-bold block text-center text-blue-950">
+              About Us
+            </span>
+            <span className="w-full text-lg  block text-center mt-4">
               We are a team of developers who are passionate about creating high
               quality software solutions. We have experience in a wide range of
               technologies and are always looking to learn more. We are dedicated
               to providing the best possible service to our clients and are always
               looking for new and exciting projects to work on.
             </span>
-          </div>
           <div className="flex justify-center">
             <ul className="grid grid-cols-2 gap-4 list-none p-0 w-full max-w-4xl">
               {companyTraits.map((trait, index) => (
