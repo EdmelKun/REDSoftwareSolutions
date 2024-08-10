@@ -56,10 +56,10 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           viewport={{ once: true }}
           className="flex md:col-span-6 justify-center items-center flex-col gap-5"
         >
-          <span className="text-5xl font-roboto font-bold block text-center text-blue-950">
+          <span className="text-5xl font-roboto font-bold block text-center text-blue-950 my-5">
             About Us
           </span>
-          <span className="text-xl text-center mt-4 mx-16 mb-4 font-roboto">
+          <span className="text-xl text-center mx-16 mb-4 font-roboto">
             We are a team of developers who are passionate about creating high
             quality software solutions. We have experience in a wide range of
             technologies and are always looking to learn more. We are dedicated

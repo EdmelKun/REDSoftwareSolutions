@@ -30,7 +30,7 @@ const Home = forwardRef<HTMLDivElement, object>((_props, ref) => {
         }}
         ref={ref}
       >
-        <div className="backdrop-brightness-50 ">
+        <div className="backdrop-brightness-50 md:p-0 p-5">
           <motion.div
             variants={divVariants}
             initial="hidden"

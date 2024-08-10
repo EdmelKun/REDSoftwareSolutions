@@ -21,7 +21,7 @@ const Goal = () => {
   ];
 
   return (
-    <div className="flex flex-col gap-10 mb-16">
+    <div className="flex flex-col md:my-16 my-28">
       <motion.div
         variants={divVariants}
         initial="hidden"
