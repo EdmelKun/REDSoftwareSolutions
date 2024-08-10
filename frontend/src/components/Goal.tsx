@@ -1,8 +1,8 @@
 import { motion } from "framer-motion";
 import { divVariants } from "../animationVariants/variants";
-import Lottie from 'lottie-react';
-import goalAnimation from '../assets/TargetAnimation.json';
-import futureAnimation from '../assets/ProgressAnimation.json'
+import Lottie from "lottie-react";
+import goalAnimation from "../assets/TargetAnimation.json";
+import futureAnimation from "../assets/ProgressAnimation.json";
 
 const Goal = () => {
   const textObject = [
@@ -27,21 +27,21 @@ const Goal = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-12"
+        className="md:grid md:grid-cols-12 flex flex-col"
       >
-        <div className="flex col-span-5 items-center justify-center">
-          <Lottie 
-            animationData={goalAnimation} 
-            loop={true} 
-            autoplay={true} 
-            style={{ width: "90%", height: "100%" }} 
+        <div className="flex col-span-5 items-center justify-center md:ml-5">
+          <Lottie
+            className="md:w-full md:h-full"
+            animationData={goalAnimation}
+            loop={true}
+            autoplay={true}
           />
         </div>
         <div className="flex flex-col col-span-7 items-center justify-center gap-6">
-          <span className="text-5xl font-roboto font-bold text-blue-950">
+          <span className="text-5xl font-roboto font-bold text-blue-950 text-center">
             {textObject[0].title}
           </span>
-          <span className="text-lg mx-16">
+          <span className="md:text-2xl text-xl mx-20 text-center font-roboto">
             {textObject[0].description}
           </span>
         </div>
@@ -51,22 +51,22 @@ const Goal = () => {
         initial="hidden"
         whileInView="visible"
         viewport={{ once: true }}
-        className="grid grid-cols-12"
+        className="md:grid md:grid-cols-12 flex flex-col-reverse"
       >
         <div className="flex flex-col col-span-7 items-center justify-center gap-6">
-          <span className="text-5xl font-roboto font-bold text-blue-950">
+          <span className="text-5xl font-roboto font-bold text-blue-950 text-center">
             {textObject[1].title}
           </span>
-          <span className="text-lg mx-16">
+          <span className="md:text-2xl text-xl mx-20 text-center font-roboto">
             {textObject[1].description}
           </span>
         </div>
         <div className="flex col-span-5 items-center justify-center">
-          <Lottie 
-            animationData={futureAnimation} 
-            loop={true} 
-            autoplay={true} 
-            style={{ width: "90%", height: "100%" }} 
+          <Lottie
+            className="md:w-full md:h-full"
+            animationData={futureAnimation}
+            loop={true}
+            autoplay={true}
           />
         </div>
       </motion.div>

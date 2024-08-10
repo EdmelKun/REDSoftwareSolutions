@@ -44,7 +44,7 @@ const Home = forwardRef<HTMLDivElement, object>((_props, ref) => {
               <img src={companyLogo} />
             </div>
             <div className="grid grid-rows-2 md:gap-2  col-span-7">
-              <span className="md:text-xl content-center text-gray-200">
+              <span className="md:text-2xl content-center text-gray-200 font-roboto md:text-left text-center">
                 Hi there! Do you need a{" "}
               </span>
               <div className="flex justify-center md:justify-normal ">
@@ -54,7 +54,7 @@ const Home = forwardRef<HTMLDivElement, object>((_props, ref) => {
                     initial={{ opacity: 0 }}
                     animate={{ opacity: 1 }}
                     transition={{ duration: 0.5, ease: "easeInOut" }}
-                    className="md:text-6xl text-2xl font-bold content-center text-gray-200 "
+                    className="md:text-7xl text-2xl font-bold content-center text-gray-200 font-roboto "
                   >
                     {services[index]}
                   </motion.span>

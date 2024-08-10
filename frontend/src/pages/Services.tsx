@@ -27,10 +27,12 @@ const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
       className="h-[100vh] justify-center"
       ref={ref}
     >
-      <div className="flex justify-center items-center md:h-[25%] h-[10%] mb-5">
-    <span className="text-5xl font-roboto font-bold text-blue-950">Our Services</span>
-  </div>
-            <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-5 md:h-[75%] h-[100%]">
+      <div className="flex justify-center items-center h-[10%] mb-10">
+        <span className="text-5xl font-roboto font-bold text-blue-950">
+          Our Services
+        </span>
+      </div>
+      <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-5 md:h-[75%] h-[100%]">
         {data.map((service: Service, index) => (
           <CardComponent
             key={service.id}

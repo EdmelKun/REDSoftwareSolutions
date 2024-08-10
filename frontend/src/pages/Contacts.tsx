@@ -105,7 +105,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
         className="flex flex-col-reverse md:flex-row md:h-[100vh] justify-center items-center md:items-stretch"
         ref={ref}
       >
-        <div className="grid md:grid-cols-2 md:w-[40%] w-[40%] h-[60%] md:items-stretch md:justify-normal items-center justify-center md:m-12 gap-5 mb-5">
+        <div className="grid md:grid-cols-2 md:w-[40%] w-[40%] h-[60%] md:items-stretch md:justify-normal items-center justify-center md:m-12 gap-5 mb-5 md:mt-[10%]">
           {contactData.map((contact, index) => {
             return (
               <motion.button
@@ -135,7 +135,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
             );
           })}
         </div>
-        <div className="flex md:w-[50%] w-full justify-center items-center mt-[30%] md:mt-[0%]">
+        <div className="flex md:w-[50%] w-full justify-center items-center mt-[40%] md:mt-[0%]">
           <div className="flex flex-col w-[100%] bg-zinc-300 justify-center items-center rounded-lg md:m-10 m-5">
             <span className="text-5xl my-10 font-roboto font-bold">
               Contact Us
