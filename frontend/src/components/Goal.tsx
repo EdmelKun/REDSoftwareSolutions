@@ -10,13 +10,13 @@ const Goal = () => {
       id: 1,
       title: "Our Goal",
       description:
-        "Provide exceptional landing pages, websites, software applications and software consultations that drive client success and satisfaction.",
+        "Provide exceptional landing pages, websites, software applications, and software consultations that drive client success and satisfaction.",
     },
     {
       id: 2,
       title: "Our Future",
       description:
-        "Become the go-to tech partner for businesses seeking high-quality web development, software development and software consultation services.",
+        "Become the go-to tech partner for businesses seeking high-quality web development, software development, and software consultation services.",
     },
   ];
 

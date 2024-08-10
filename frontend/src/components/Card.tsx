@@ -64,6 +64,16 @@ const CardComponent = ({
             <span className="text-yellow-400 font-medium mt-2">{description}</span>
           </div>
         )}
+        {show && (
+          <div className="absolute top-0 left-0 w-full h-full z-0 flex justify-center items-center">
+            <Lottie
+              animationData={animations[Number(custom)]}
+              loop={false}
+              autoplay={true}
+              style={{ pointerEvents: "none", width: "70%", height: "70%" }}
+            />
+          </div>
+        )}
       </motion.div>
     </motion.button>
   );
