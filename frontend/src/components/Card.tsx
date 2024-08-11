@@ -23,6 +23,10 @@ const CardComponent = ({
 }: CardProps) => {
   const [show, setShow] = useState(false);
 
+  const toggleShow = () => {
+    setShow((prevShow) => !prevShow);
+  };
+
   return (
     <motion.button
       variants={variants}
@@ -35,8 +39,10 @@ const CardComponent = ({
       whileHover={{
         scale: 1.1,
       }}
-      onClick={() => setShow(true)}
-      className="h-72 md:h-60 w-[75%] md:w-[25%] bg-cover overflow-hidden bg-no-repeat bg-center border-2 border-gray-200 shadow-lg rounded-xl relative"
+      onClick={toggleShow}
+      className={`h-72 md:h-60 w-[75%] md:w-[25%] bg-cover overflow-hidden bg-no-repeat bg-center border-2 border-gray-200 shadow-lg rounded-xl relative transition-transform duration-300 ${
+        show ? 'backdrop-blur-md' : ''
+      }`}
       style={{
         backgroundImage: `url(${imageLink})`,
       }}
