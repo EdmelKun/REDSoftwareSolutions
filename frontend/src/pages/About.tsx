@@ -6,14 +6,12 @@ import BackgroundDesign2 from "../assets/BackgroundDesign2.png";
 import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
 import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
 import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
-import CEO from "../assets/CEO.jpg";
-import TechLead from "../assets/TechLead.jpg";
-import COO from "../assets/COO.jpg";
-import Dom from "../assets/Dominic Bernas.jpg";
+import Dom from "../assets/Dominic Bernas.jpg"; 
 import Ed from "../assets/Edmel Linaugo.jpg";
 import Renz from "../assets/Renzo Laporno.jpg";
 import { motion } from "framer-motion";
 import Goal from "../components/Goal";
+import LottieImages from "../components/LottieImage";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -33,11 +31,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [founderImages, setFounderImages] = useState([
-    CEO,
-    TechLead,
-    COO,
-  ]);
+  const [hoveredIndexes, setHoveredIndexes] = useState<number[]>(Array(3).fill(null));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -56,19 +50,6 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
       config: { duration: 1000 },
     }))
   );
-
-  const handleMouseEnter = (index: number) => {
-    const newImages = [...founderImages];
-    if (index === 0) newImages[index] = Dom; 
-    if (index === 1) newImages[index] = Ed; 
-    if (index === 2) newImages[index] = Renz; 
-    setFounderImages(newImages);
-  };
-
-  const handleMouseLeave = (index: number) => {
-    const originalImages = [CEO, TechLead, COO];
-    setFounderImages(originalImages);
-  };
 
   return (
     <div className="grid items-center" ref={ref}>
@@ -145,76 +126,35 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
         </motion.div>
       </div>
       <span className="text-5xl font-roboto font-bold block text-center text-blue-950 my-5">
-            Meet the Team and the Founders
-          </span>
+        Meet the Team and the Founders
+      </span>
       <div className="flex flex-col items-center mt-10 space-y-2">
-  <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4">
-    <div
-      className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105 transform md:translate-x-[-50px] lg:translate-x-[-250px]"
-      onMouseEnter={() => handleMouseEnter(0)}
-      onMouseLeave={() => handleMouseLeave(0)}
-    >
-      <img
-        src={founderImages[0]}
-        alt="Founder 1"
-        className="w-64 h-72 rounded-lg border-4 border-gray-300"
-      />
-      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+        {[
+          { name: "Chief Executive Officer", image: Dom, index: 0, description: "Dominic Bernas is a visionary leader and business analyst focused on driving the company's strategic direction. With a strong background in frontend development, he fosters creativity and innovation to enhance user experiences and achieve lasting success." },
+          { name: "Chief Technical Leader", image: Ed, index: 1, description: "Edmel Linaugo is a tech lead with expertise in full-stack development. He ensures the team delivers high-quality, innovative solutions by inspiring collaboration and maintaining rigorous standards across all projects." },
+          { name: "Chief Operating Officer", image: Renz, index: 2, description: "Renzo Laporno is a versatile frontend developer who excels in operations management. His flexibility and focus on process optimization empower the team to work efficiently and achieve outstanding results together." },
+        ].map(({ name, image, index, description }) => (
+          <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4" key={index}>
+            <div
+              className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105"
+              onMouseEnter={() => setHoveredIndexes((prev) => prev.map((hIndex, i) => (i === index ? 1 : hIndex)))}
+            >
+              <LottieImages startIndex={index} founderImage={image} />
+              {hoveredIndexes[index] !== null && (
+                <div className="absolute inset-0 flex justify-center items-center opacity-100 transition-opacity duration-300">
+                </div>
+              )}
+            </div>
+            <div className="mt-2 text-xl text-center mx-4 mb-4 font-roboto max-w-xl">
+              <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-4xl">
+                {name}
+              </p>
+              {description}
+            </div>
+          </div>
+        ))}
       </div>
-      <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-4xl">Chief Executive Officer</p>
-    </div>
-    <div className="mt-2 text-xl text-center mx-4 mb-4 font-roboto max-w-xl transform md:translate-x-[-50px] lg:translate-x-[-280px]">
-        Dominic Bernas is a visionary leader and business analyst focused on driving the company's strategic direction. 
-        With a strong background in frontend development, he fosters creativity and innovation to enhance user experiences 
-        and achieve lasting success.
-    </div>
-  </div>
-
-  <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4">
-    <div
-      className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105 "
-      onMouseEnter={() => handleMouseEnter(1)}
-      onMouseLeave={() => handleMouseLeave(1)}
-    >
-      <img
-        src={founderImages[1]}
-        alt="Founder 2"
-        className="w-64 h-72 rounded-lg border-4 border-gray-300"
-      />
-      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      </div>
-      <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-4xl">Technical Leader</p>
-    </div>
-    <div className="mt-2 text-xl text-center mx-4 mb-4 font-roboto max-w-xl">
-        Edmel Linaugo is a tech lead with expertise in full-stack development. 
-        He ensures the team delivers high-quality, innovative solutions by inspiring 
-        collaboration and maintaining rigorous standards across all projects.
-    </div>
-  </div>
-
-  <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4 transform md:translate-x-[-50px] lg:translate-x-[250px]">
-    <div
-      className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105"
-      onMouseEnter={() => handleMouseEnter(2)}
-      onMouseLeave={() => handleMouseLeave(2)}
-    >
-      <img
-        src={founderImages[2]}
-        alt="Founder 3"
-        className="w-64 h-72 rounded-lg border-4 border-gray-300"
-      />
-      <div className="absolute inset-0 flex justify-center items-center opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-      </div>
-      <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-4xl">Chief Operating Officer</p>
-    </div>
-    <div className="mt-2 text-xl text-center mx-4 mb-4 font-roboto max-w-xl transform md:translate-x-[-50px] lg:translate-x-[-50px]">
-        Renzo Laporno is a versatile frontend developer who excels in operations management. 
-        His flexibility and focus on process optimization empower the team to work efficiently 
-        and achieve outstanding results together.
-    </div>
-  </div>
-</div>
-<Goal />
+      <Goal />
     </div>
   );
 });
