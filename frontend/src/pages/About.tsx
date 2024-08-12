@@ -6,8 +6,12 @@ import BackgroundDesign2 from "../assets/BackgroundDesign2.png";
 import BackgroundDesign3 from "../assets/BackgroundDesign3.png";
 import BackgroundDesign4 from "../assets/BackgroundDesign4.png";
 import BackgroundDesign5 from "../assets/BackgroundDesign5.png";
+import Dom from "../assets/Dominic Bernas.jpg"; 
+import Ed from "../assets/Edmel Linaugo.jpg";
+import Renz from "../assets/Renzo Laporno.jpg";
 import { motion } from "framer-motion";
 import Goal from "../components/Goal";
+import LottieImages from "../components/LottieImage";
 
 const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   const companyTraits = [
@@ -27,6 +31,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [hoveredIndexes, setHoveredIndexes] = useState<number[]>(Array(3).fill(null));
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -119,6 +124,35 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
             />
           ))}
         </motion.div>
+      </div>
+      <span className="text-5xl font-roboto font-bold block text-center text-blue-950 my-5">
+        Meet the Team and the Founders
+      </span>
+      <div className="flex flex-col items-center mt-10 space-y-2">
+        {[
+          { name: "Chief Executive Officer", image: Dom, index: 0, description: "Dominic Bernas is a visionary leader and business analyst focused on driving the company's strategic direction. With a strong background in frontend development, he fosters creativity and innovation to enhance user experiences and achieve lasting success." },
+          { name: "Chief Technical Leader", image: Ed, index: 1, description: "Edmel Linaugo is a tech lead with expertise in full-stack development. He ensures the team delivers high-quality, innovative solutions by inspiring collaboration and maintaining rigorous standards across all projects." },
+          { name: "Chief Operating Officer", image: Renz, index: 2, description: "Renzo Laporno is a versatile frontend developer who excels in operations management. His flexibility and focus on process optimization empower the team to work efficiently and achieve outstanding results together." },
+        ].map(({ name, image, index, description }) => (
+          <div className="flex flex-col md:flex-row items-start space-y-4 md:space-y-0 md:space-x-4" key={index}>
+            <div
+              className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105"
+              onMouseEnter={() => setHoveredIndexes((prev) => prev.map((hIndex, i) => (i === index ? 1 : hIndex)))}
+            >
+              <LottieImages startIndex={index} founderImage={image} />
+              {hoveredIndexes[index] !== null && (
+                <div className="absolute inset-0 flex justify-center items-center opacity-100 transition-opacity duration-300">
+                </div>
+              )}
+            </div>
+            <div className="mt-2 text-xl text-center mx-4 mb-4 font-roboto max-w-xl">
+              <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-4xl">
+                {name}
+              </p>
+              {description}
+            </div>
+          </div>
+        ))}
       </div>
       <Goal />
     </div>
