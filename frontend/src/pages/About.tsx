@@ -124,7 +124,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
         <span className="text-5xl font-roboto font-bold block text-center text-blue-950 my-5">
           Meet the Team
         </span>
-        {companyOwners.map(({ name, image, index, description }) => (
+        {companyOwners.map(({ name, image, description, animation }, index) => (
           <motion.div
             variants={itemVariants}
             initial="hidden"
@@ -134,10 +134,8 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
             className="flex flex-col md:flex-row items-center space-y-4 md:space-y-0 md:space-x-4"
             key={index}
           >
-            <div
-              className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105 my-5"
-            >
-              <LottieImages startIndex={index} founderImage={image} />
+            <div className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105 my-5">
+              <LottieImages founderImage={image} lottieAnimation={animation} />
             </div>
             <div className="mt-2 text-center mx-4 mb-4 font-roboto max-w-xl">
               <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-3xl md:text-4xl">

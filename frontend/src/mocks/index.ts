@@ -5,6 +5,9 @@ import SoftwareConsultation from "../assets/images/SoftwareConsultation.png";
 import Dom from "../assets/images/Dominic Bernas.jpg";
 import Ed from "../assets/images/Edmel Linaugo.jpg";
 import Renz from "../assets/images/Renzo Laporno.jpg";
+import CEO from "../assets/animations/CEO.json";
+import COO from "../assets/animations/CTO.json";
+import CTO from "../assets/animations/COO.json";
 
 export const services = [
   {
@@ -46,23 +49,23 @@ export const companyOwners = [
   {
     name: "Chief Executive Officer",
     image: Dom,
-    index: 0,
     description:
       "Dominic Bernas is a visionary leader and business analyst focused on driving the company's strategic direction. With a strong background in frontend development, he fosters creativity and innovation to enhance user experiences and achieve lasting success.",
+    animation: CEO,
   },
   {
     name: "Chief Technical Leader",
     image: Ed,
-    index: 1,
     description:
       "Edmel Linaugo is a tech lead with expertise in full-stack development. He ensures the team delivers high-quality, innovative solutions by inspiring collaboration and maintaining rigorous standards across all projects.",
+    animation: CTO,
   },
   {
     name: "Chief Operating Officer",
     image: Renz,
-    index: 2,
     description:
       "Renzo Laporno is a versatile frontend developer who excels in operations management. His flexibility and focus on process optimization empower the team to work efficiently and achieve outstanding results together.",
+    animation: COO,
   },
 ];
 

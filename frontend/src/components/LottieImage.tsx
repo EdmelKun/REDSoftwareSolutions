@@ -1,20 +1,12 @@
-import {useState} from "react";
+import { useState } from "react";
 import Lottie from "lottie-react";
-import CEO from "../assets/animations/CEO.json";
-import CTO from "../assets/animations/CTO.json";
-import COO from "../assets/animations/COO.json";
 
 interface LottieImagesProps {
-  startIndex?: number;
-  duration?: number;
   founderImage: string;
+  lottieAnimation: object;
 }
 
-const LottieImages = ({
-  startIndex = 0,
-  founderImage,
-}: LottieImagesProps) => {
-  const lottieFiles = [CEO, CTO, COO];
+const LottieImages = ({ founderImage, lottieAnimation }: LottieImagesProps) => {
   const [isHovered, setIsHovered] = useState(false);
 
   return (
@@ -24,8 +16,8 @@ const LottieImages = ({
       className="relative inline-block"
     >
       <Lottie
-        animationData={lottieFiles[startIndex]}
-        loop={!isHovered}
+        animationData={lottieAnimation}
+        loop={true}
         autoplay={true}
         className="w-64 h-64"
       />
