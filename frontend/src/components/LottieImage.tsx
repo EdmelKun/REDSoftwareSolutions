@@ -1,4 +1,4 @@
-import { useEffect, useState } from "react";
+import {useState} from "react";
 import Lottie from "lottie-react";
 import CEO from "../assets/animations/CEO.json";
 import CTO from "../assets/animations/CTO.json";
@@ -12,19 +12,10 @@ interface LottieImagesProps {
 
 const LottieImages = ({
   startIndex = 0,
-  duration,
   founderImage,
 }: LottieImagesProps) => {
   const lottieFiles = [CEO, CTO, COO];
   const [isHovered, setIsHovered] = useState(false);
-
-  useEffect(() => {
-    if (duration) {
-      const timer = setTimeout(() => {}, duration);
-
-      return () => clearTimeout(timer);
-    }
-  }, [duration]);
 
   return (
     <div
