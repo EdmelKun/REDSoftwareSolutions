@@ -20,9 +20,6 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
   ];
 
   const [currentImageIndex, setCurrentImageIndex] = useState(0);
-  const [hoveredIndexes, setHoveredIndexes] = useState<number[]>(
-    Array(3).fill(null)
-  );
 
   useEffect(() => {
     const interval = setInterval(() => {
@@ -107,7 +104,7 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
                 ...style,
                 position: "absolute",
                 width: "90%",
-                height: "50%",
+                height: "80%",
                 borderRadius: "10px",
                 border: "2px solid gray",
                 boxShadow: "0 4px 8px rgba(0, 0, 0, 0.2)",
@@ -139,16 +136,8 @@ const About = forwardRef<HTMLDivElement, object>((_props, ref) => {
           >
             <div
               className="relative flex flex-col items-center transition-transform duration-300 transform hover:scale-105 my-5"
-              onMouseEnter={() =>
-                setHoveredIndexes((prev) =>
-                  prev.map((hIndex, i) => (i === index ? 1 : hIndex))
-                )
-              }
             >
               <LottieImages startIndex={index} founderImage={image} />
-              {hoveredIndexes[index] !== null && (
-                <div className="absolute inset-0 flex justify-center items-center opacity-100 transition-opacity duration-300"></div>
-              )}
             </div>
             <div className="mt-2 text-center mx-4 mb-4 font-roboto max-w-xl">
               <p className="mt-2 text-center font-roboto font-bold text-blue-950 text-3xl md:text-4xl">

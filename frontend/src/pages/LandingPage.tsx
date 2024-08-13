@@ -5,7 +5,7 @@ import { navBarVariants } from "../animationVariants/variants";
 import Home from "../pages/Home";
 import Services from "./Services";
 import About from "./About";
-import MainBackground from "../assets/images/MainBackground.png";
+import MainBackground from "../assets/images/MainBackground2.png";
 import logo from "../assets/images/CompanyLogo.png";
 import Contacts from "./Contacts";
 import Footer from "../components/Footer";
