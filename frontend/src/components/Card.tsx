@@ -2,10 +2,10 @@ import { CardProps } from "../types";
 import { motion } from "framer-motion";
 import { useState } from "react";
 import Lottie from "lottie-react";
-import webDevAnimation from "../assets/WebsiteDevelopmentAnimation.json";
-import landingPageAnimation from "../assets/LandingPageAnimation.json";
-import softwareSolutionsAnimation from "../assets/SoftwareSolutionsAnimation.json";
-import consultationAnimation from "../assets/ConsultationAnimation.json";
+import webDevAnimation from "../assets/animations/WebsiteDevelopmentAnimation.json";
+import landingPageAnimation from "../assets/animations/LandingPageAnimation.json";
+import softwareSolutionsAnimation from "../assets/animations/SoftwareSolutionsAnimation.json";
+import consultationAnimation from "../assets/animations/ConsultationAnimation.json";
 
 const animations = [
   webDevAnimation,

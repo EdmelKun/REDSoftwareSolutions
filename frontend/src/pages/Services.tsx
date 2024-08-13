@@ -1,20 +1,23 @@
-import { useState, useEffect, forwardRef } from "react";
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import CardComponent from "../components/Card";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 import { Service } from "../types";
+import { services } from "../mocks";
 
 const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
-  const [data, setData] = useState<Service[]>([]);
-  const backendUrl =
-    "https://redsoftwaresolutions-backend.onrender.com" ||
-    "http://localhost:3000";
+  //*DO NOT REMOVE*
+  // const [data, setData] = useState<Service[]>([]);
+  // const backendUrl =
+  //   "https://redsoftwaresolutions-backend.onrender.com" ||
+  //   "http://localhost:3000";
 
-  useEffect(() => {
-    fetch(`${backendUrl}/api/services`)
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${backendUrl}/api/services`)
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
+  //*DO NOT REMOVE*
 
   return (
     <motion.div
@@ -33,7 +36,7 @@ const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
         </span>
       </div>
       <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-5 md:h-[75%] h-[100%]">
-        {data.map((service: Service, index) => (
+        {services.map((service: Service, index) => (
           <CardComponent
             key={service.id}
             name={service.name}

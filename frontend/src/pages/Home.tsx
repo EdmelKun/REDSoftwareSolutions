@@ -1,5 +1,5 @@
-import companyLogo from "../assets/CroppedCompanyLogo.png";
-import backgroundImage from "../assets/background.svg";
+import companyLogo from "../assets/images/CroppedCompanyLogo.png";
+import backgroundImage from "../assets/images/background.svg";
 import { motion, AnimatePresence } from "framer-motion";
 import { useState, useEffect, forwardRef } from "react";
 import { divVariants } from "../animationVariants/variants";

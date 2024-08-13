@@ -10,7 +10,6 @@ import {
 import emailjs from "@emailjs/browser";
 import Modal from "../components/Modal";
 
-
 const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
   const copyToClipboard = (text: string) => {
     navigator.clipboard.writeText(text).then(
@@ -49,8 +48,7 @@ const Contacts = forwardRef<HTMLDivElement>((_props, ref) => {
       data: "www.redsoftwaresolutions.org",
       icon: <GlobeAltIcon />,
       action: () => {
-        window.location.href =
-          "https://redsoftwaresolutions-i5yh.onrender.com/";
+        window.location.href = "www.redsoftwaresolutions.org";
       },
     },
     {
