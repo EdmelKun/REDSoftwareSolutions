@@ -1,17 +1,23 @@
-import { useState, useEffect, forwardRef } from "react";
+import { forwardRef } from "react";
 import { motion } from "framer-motion";
 import CardComponent from "../components/Card";
 import { divVariants, itemVariants } from "../animationVariants/variants";
 import { Service } from "../types";
+import { services } from "../mocks";
 
 const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
-  const [data, setData] = useState([]);
+  //*DO NOT REMOVE*
+  // const [data, setData] = useState<Service[]>([]);
+  // const backendUrl =
+  //   "https://redsoftwaresolutions-backend.onrender.com" ||
+  //   "http://localhost:3000";
 
-  useEffect(() => {
-    fetch("http://localhost:3000/api/services")
-      .then((res) => res.json())
-      .then((data) => setData(data));
-  }, []);
+  // useEffect(() => {
+  //   fetch(`${backendUrl}/api/services`)
+  //     .then((res) => res.json())
+  //     .then((data) => setData(data));
+  // }, []);
+  //*DO NOT REMOVE*
 
   return (
     <motion.div
@@ -21,25 +27,25 @@ const Services = forwardRef<HTMLDivElement, {}>((_props, ref) => {
       viewport={{
         once: true,
       }}
-      className=" h-[100vh] justify-center "
+      className="h-[100vh] justify-center"
       ref={ref}
     >
-      <div className="flex justify-center items-center h-[25%]">
-        <span className="text-5xl font-medium">Our Services</span>
+      <div className="flex justify-center items-center h-[10%] mb-10">
+        <span className="text-5xl font-roboto font-bold text-blue-950">
+          Our Services
+        </span>
       </div>
-      <div className="flex flex-wrap justify-center items-center gap-5  h-[75%]  ">
-        {data.map((service: Service, index) => {
-          return (
-            <CardComponent
-              key={service.id}
-              name={service.name}
-              description={service.description}
-              imageLink={service.imageLink}
-              variants={itemVariants}
-              custom={index}
-            />
-          );
-        })}
+      <div className="flex flex-col md:flex-row md:flex-wrap justify-center items-center gap-5 md:h-[75%] h-[100%]">
+        {services.map((service: Service, index) => (
+          <CardComponent
+            key={service.id}
+            name={service.name}
+            description={service.description}
+            imageLink={service.imageLink}
+            variants={itemVariants}
+            custom={index}
+          />
+        ))}
       </div>
     </motion.div>
   );
